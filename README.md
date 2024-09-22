@@ -1,16 +1,6 @@
-# Steerable Needle Planner
+# Steerable Needle Robustness Metric
 
-#### Update 02/14/2022
 
-Extended code for IEEE International Conference on Robotics and Automation (ICRA) 2022 paper *Resolution-Optimal Motion Planning for Steerable Needles (to appear)*. [[arXiv](https://arxiv.org/abs/2110.02907)]
-
-#### Original
-
-Code for Robotics: Science and Systems (RSS) 2021 paper *Toward Certifiable Motion Planning for Medical Steerable Needles*. [[Paper](http://www.roboticsproceedings.org/rss17/p081.pdf)]
-
-Steerable Needle Planner efficiently produces motion plans for medical steerable needles, considering constraints including maximum curvature, obstacles, and etc.
-
-Steerable Needle Planner is based on [Motion Planning Templates (MPT)](http://robotics.cs.unc.edu/mpt), a collection of C++ template classes for fast, parallel, robot-specific motion planning.
 
 ## Motion Planning for Steerable Needles
 

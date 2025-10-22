@@ -8,6 +8,15 @@ Steerable needles are highly flexible medical devices able to follow 3D curvilin
 
 Automating steerable needle procedures can enable physicians and patients to harness the full potential of steerable needles by maximally leveraging their steerability and ability to accurately and precisely reach targets. Automation is critical to harnessing the full potential of these needles since the non-holonomic constraints on the needle’s 3D motion coupled with the cluttered nature of anatomical environments make direct manual control un-intuitive and impractical for human operators. To automate steerable needle procedures, physicians first obtain a medical image (such as a CT scan or MRI) of the relevant anatomy, from which we can segment (manually or automatically) the relevant anatomy, including the target to reach and obstacles to avoid. The next key ingredient to the automation of steerable needle procedures is motion planning, which requires computing feasible motions to steer the needle safely around the anatomical obstacles and to the target.
 
+## Insertion Robustness Metric
+
+A steerable needle deployment typically consists of a physician manually placing a steerable needle at a precomputed start pose on the surface of tissue and handing off control to a robot, which then autonomously steers the needle through the tissue to the target. The handoff between humans and robots is critical for procedure success, as even small deviations from a planned start pose change the
+steerable needle's reachable workspace. Our metric is based on a novel geometric
+method to efficiently compute how far the physician can deviate from
+the planned start pose in both position and orientation such that the
+steerable needle can still reach the target. We evaluate our metric
+through simulation in liver and lung scenarios. Our evaluation shows that our metric can be applied to plans computed by different steerable needle motion planners and that it can be used to efficiently select plans with large safe start regions.
+
 ## Requirements
 
 * C++17 compatible compiler (GCC 7+ for Linux, Clang 5+ for maxOS)
@@ -123,27 +132,28 @@ where `ptcloud_x` are the files saving the point clouds. For example, `python3 {
 
 ### References
 
-[1] Patil, S., Burgner, J., Webster, R.J. and Alterovitz, R., 2014. Needle steering in 3-D via rapid replanning. IEEE Transactions on Robotics, 30(4), pp.853-864.
+[1] Hoelscher, J., Fried, I., Tsalikis, S., Akulian, J., Webster, R. J., and Alterovitz, R., 2025. Resolution-Optimal Safe Start Regions for Medical Steerable Needle Automation. IEEE Transactions on Robotics (presented at IROS 2025).
 
-[2] Hauser, K. and Zhou, Y., 2016. Asymptotically optimal planning by feasible kinodynamic planning in a state–cost space. IEEE Transactions on Robotics, 32(6), pp.1431-1443.
+[2] Fu, M., Solovey, K., Salzman, O. and Alterovitz, R., 2022. Resolution-Optimal Motion Planning for Steerable Needles. IEEE International Conference on Robotics and Automation, 2022.
 
-[3] Fu, M., Salzman, O. and Alterovitz, R., 2021. Toward Certifiable Motion Planning for Medical Steerable Needles. Robotics science and systems: online proceedings, 2021.
+[3] Patil, S., Burgner, J., Webster, R.J. and Alterovitz, R., 2014. Needle steering in 3-D via rapid replanning. IEEE Transactions on Robotics, 30(4), pp.853-864.
 
-[4] Fu, M., Solovey, K., Salzman, O. and Alterovitz, R., 2022. Resolution-Optimal Motion Planning for Steerable Needles. IEEE International Conference on Robotics and Automation, 2022.
+
 
 ## Citation
 
 If you use this source code, please cite the following papers accordingly:
 ```
-@inproceedings{Fu2021_RSS,
-    author    = {Mengyu Fu and Oren Salzman and Ron Alterovitz},
-    title     = {{Toward Certifiable Motion Planning for Medical Steerable Needles}},
-    booktitle = {Proceedings of Robotics: Science and Systems},
-    year      = {2021},
-    address   = {Virtual},
-    month     = {July},
-    doi       = {10.15607/RSS.2021.XVII.081}
-}
+@ARTICLE{Hoelscher2025_TRO,
+  author={Hoelscher, Janine and Fried, Inbar and Tsalikis, Spiros and Akulian, Jason and Webster, Robert J. and Alterovitz, Ron},
+  journal={IEEE Transactions on Robotics}, 
+  title={Safe Start Regions for Medical Steerable Needle Automation}, 
+  year={2025},
+  volume={41},
+  number={},
+  pages={2424-2440},
+  keywords={Needles;Planning;Measurement;Robustness;Robots;Medical services;Liver;Lungs;Biopsy;Uncertainty;Motion and path planning;nonholonomic motion planning;surgical robotics: Planning;surgical robotics: Steerable catheters/needles},
+  doi={10.1109/TRO.2025.3552323}}
 
 @inproceedings{Fu2022_ICRA,
     author={Mengyu Fu and Kiril Solovey and Oren Salzman and Ron Alterovitz},
